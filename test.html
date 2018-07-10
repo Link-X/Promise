@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  .box {
+    position: relative;
+    display: flex;
+  }
+
+  #div1 {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+  }
+
+  #div2 {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+  }
+</style>
+
+<body>
+  <div class="box">
+    <div id="div1"></div>
+    <div id="div2"></div>
+  </div>
+</body>
+<script src="./promises.js"></script>
+<script>
+  let div1 = document.querySelector('#div1')
+  let div2 = document.querySelector('#div2')
+
+  const porm = new Promises((resolve, reject) => {
+    if (true) {
+      console.log(1)
+      for (let i = 0; i < 1000; i++) {
+        // console.log(i)
+      }
+      setTimeout(() => {
+        console.log(1123333, 'aabb')
+      })
+      // setTimeout(() => {
+      resolve('success')
+      // })
+    } else if (false) {
+      reject('error')
+    }
+  })
+  porm.then((val) => {
+    console.log(val, 'a')
+  }).then((val) => {
+    console.log(val, 123)
+  }).catch((val) => {
+    console.log(val, 'b')
+  }).catch((val) => {
+    console.log(val, 'c')
+  })
+
+  // porm.then((val) => {
+  //   console.log(val, 6)
+  // }).then((val) => {
+  //   console.log(val, 7)
+  // }).then((val) => {
+  //   console.log(val, 8)
+  // }).then((val) => {
+  //   console.log(val, 9)
+  // }).then((val) => {
+  //   console.log(val, 10)
+  // })
+</script>
+
+</html>
